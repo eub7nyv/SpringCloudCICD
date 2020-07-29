@@ -35,6 +35,6 @@ substitutions:
     _CONTAINER_TAG: latest
     _REGION: us-central1
     _JAR_NAME: MckessonDataService-0.0.1-SNAPSHOT
-    _PORT_NAME: 9897
+    _PORT_NAME: '9897'
 options:
     substitution_option: 'ALLOW_LOOSE'
