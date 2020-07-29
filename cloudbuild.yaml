@@ -9,5 +9,5 @@ steps:
     args: ["build", "-t", "gcr.io/springcicd/hellospring", "--build-arg=JAR_FILE=target/MckessonDataService-0.0.1-SNAPSHOT.jar", "."]
   - name: gcr.io/cloud-builders/gcloud
     args: ['app', 'deploy']
-    timeout: '1600s'
+   
 images: ["gcr.io/springcicd/hellospring"]
