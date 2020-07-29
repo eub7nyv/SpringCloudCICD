@@ -30,7 +30,7 @@ substitutions:
     _PROJ_NAME: springcicd
     _CONTAINER_NAME: hellospring
     _CONTAINER_TAG: latest
-    _REGION: us-west4
+    _REGION: us-west2
     _JAR_NAME: MckessonDataService-0.0.1-SNAPSHOT
 options:
     substitution_option: 'ALLOW_LOOSE'
