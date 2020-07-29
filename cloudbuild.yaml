@@ -6,22 +6,31 @@ steps:
     entrypoint: mvn
     args: ["package", "-Dmaven.test.skip=true"]
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "gcr.io/springcicd/hellospring", "--build-arg=JAR_FILE=target/MckessonDataService-0.0.1-SNAPSHOT.jar", "."]
+    args: ["build", "-t", "gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}", "--build-arg=JAR_FILE=target/${_JAR_NAME}.jar", "."]
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/SERVICE-NAME:$COMMIT_SHA']
+    args: ['push', 'gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}']
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
     - 'run'
     - 'deploy'
-    - 'SERVICE-NAME'
+    - '${_CONTAINER_NAME}'
     - '--image'
-    - 'gcr.io/$PROJECT_ID/SERVICE-NAME:$COMMIT_SHA'
+    - 'gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}'
     - '--region'
-    - 'REGION'
+    - '${_REGION}'
     - '--platform'
     - 'managed'
    
-images: ["gcr.io/springcicd/hellospring"]
+images: ["gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}"]
+
+substitutions:
+    _PROJ_NAME: springcicd
+    _CONTAINER_NAME: hellospring
+    _CONTAINER_TAG: latest
+    _REGION: us-west4
+    _JAR_NAME: MckessonDataService-0.0.1-SNAPSHOT
+options:
+    substitution_option: 'ALLOW_LOOSE'
