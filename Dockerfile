@@ -1,7 +1,7 @@
 FROM openjdk:11-jre
 
 RUN mkdir /app
-WORKDIR /app
+WORKDIR /app 
 
 ENTRYPOINT ["java","-jar","app.jar"]
 
