@@ -19,8 +19,8 @@ steps:
     - '${_CONTAINER_NAME}'
     - '--image'
     - 'gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}'
-    - '--region'
-    - '${_REGION}'
+    #- '--region'
+    #- '${_REGION}'
     - '--platform'
     - 'managed'
    
