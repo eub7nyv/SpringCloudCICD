@@ -23,6 +23,9 @@ steps:
     - '${_REGION}'
     - '--platform'
     - 'managed'
+    - '--port'
+    - '${_PORT_NAME}'
+
    
 images: ["gcr.io/${_PROJ_NAME}/${_CONTAINER_NAME}:${_CONTAINER_TAG}"]
 
@@ -32,5 +35,6 @@ substitutions:
     _CONTAINER_TAG: latest
     _REGION: us-central1
     _JAR_NAME: MckessonDataService-0.0.1-SNAPSHOT
+    _PORT_NAME: 9897
 options:
     substitution_option: 'ALLOW_LOOSE'
