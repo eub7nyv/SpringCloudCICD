@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<dep.slf4j-simple.version>1.7.29</dep.slf4j-simple.version>
-		<dep.stringutils.version>3.10</dep.stringutils.version>
+		<dep.stringutils.version>3.18.0</dep.stringutils.version>
 	</properties>
 
 
